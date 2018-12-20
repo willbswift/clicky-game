@@ -1,17 +1,13 @@
 [
   {
     "id": 1,
-    "name": "SpongeBob",
-    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Spongebob-squarepants.svg/666px-Spongebob-squarepants.svg.png",
-    "occupation": "Fry Cook",
-    "location": "A Pineapple Under the Sea"
+    "name": "2160",
+    "image": "2160.png"
   },
   {
     "id": 2,
-    "name": "Mr. Krabs",
-    "image": "https://vignette3.wikia.nocookie.net/vsbattles/images/8/80/Mr._Krabs.png/revision/latest?cb=20150919162131",
-    "occupation": "Restaurant Owner",
-    "location": "A Giant Anchor"
+    "name": "2230",
+    "image": "https://vignette.wikia.nocookie.net/memoryalpha/images/1/1a/2230s_Starfleet_insignia.svg/revision/latest?cb=20160626021847&path-prefix=en"
   },
   {
     "id": 3,
