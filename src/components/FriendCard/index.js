@@ -3,7 +3,7 @@ import "./style.css";
 
 function FriendCard(props) {
   return (
-    <span onClick={() => props.scoring(props.id)} className="scoring">
+    <span onClick={() => props.scoring(props.name)} className="scoring">
       <div className="card">
         <div className="img-container">
           <img alt={props.name} src={props.image} />
@@ -14,3 +14,4 @@ function FriendCard(props) {
 }
 
 export default FriendCard;
+
