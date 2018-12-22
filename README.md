@@ -5,7 +5,7 @@ This is the ReadMe file for my clicky-game React program. It was the assignment 
 
 To play the game go to the Heroku hosted site https://powerful-bastion-41233.herokuapp.com/
 
-![alt text](readme_pics/Image2.jpg?raw=true "1st pic") 
+![alt text](readme_pics/image2.jpg?raw=true "1st pic") 
 
 The goal is to click on each insignia once and only once.  However, because each click scrambles the order the insignia are presented in, the user must carefully remember which ones they have already clicked on.  If you click on the same insignia twice then the game resets and your score returns to zero. The game will keep track of the highest score you made in a given session, and will alert you when you make a correct, or incorrect choice.  It also alerts you when you win.      
 
