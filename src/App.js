@@ -21,63 +21,66 @@ class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
     friends,
-    score: 0,
     //create array of insignia that have been chosen.
-    chosen: []
+    chosen: [],
+    score: 0,
+    highScore: 0,
+    status: "Click on each emblem once and only once."
   };
 
-  // handleIncrement increments this.state.count by 1
-      // ALTERNATE scoring = () => {
-  
-  scoring = event => {
-    // Preventing the default behavior of the click
-    // event.preventDefault();
-    console.log("I got Clicked!");
-    // We always use the setState method to update a component's state
-    this.setState({ score: this.state.score + 1 });
-// WHY DOESN'T THIS WORK???
-    console.log(this.state.score);
-  };
+  scoring = name => {
 
-// -------------------------------- CHECK THIS OUT !! ---------------------------------
+    // checking the value and name of the input which triggered the change
+    console.log("I Clicked on ", { name });
 
-  //   // Getting the value and name of the input which triggered the change
-  //   const { score, id } = event.target.id;
+    function checkIfChosen(arr, name) {
+      return arr.some(function (arrVal) {
+        return name === arrVal;
+      });
+    }
 
-  //   // Updating the input's state
-  //   this.setState({
-  //     [score]: newScore
-  //   });
+    let isChosen = checkIfChosen(this.state.chosen, name)
 
-//everytime a new insignia is chosen compare it to chosen.  
-// if there is a match then reset score to 0.
-// if there is no match then +1 to score and re-randomize insignia.  
-    // Set this.state.score equal to the new score
-    // this.setState({ score });
+    if (isChosen === true) {
+      this.setState({ score: 0 });
+      this.setState({ chosen: [] })
+      this.setState({ status: "You already chose that one.  Start over!" });
 
-// Alert the user of their current score
+      console.log(this.state.chosen);
+      // re-randomize insignia.  
+    }
+    else {
+      // if there is no match then +1 to score 
+      // We always use the setState method to update a component's state
+      this.setState({ score: this.state.score + 1 });
+      this.setState({ status: "Valid Answer!" });
+      this.setState({ chosen: [...this.state.chosen, name] })
 
-// reset the page (but not the score)
+      console.log("this is score", this.state.score);
+      console.log("this is HIGH score", this.state.highScore);
 
-  // scoring = id => {
-  //   // Filter this.state.friends for friends with an id not equal to the id being removed
-  //   // const friends = this.state.friends.filter(friend => friend.id !== id);
-  // };
-
-
-
-
-
-
-
+      console.log(this.state.chosen);
+      if (this.state.score +1 > this.state.highScore) {
+        this.setState({ highScore: this.state.score +1});
+      } // End of high score setting IF statement
+      if (this.state.score +1 === 14) {
+        this.setState({ status: "YOU WON!  Click any Emblem to play again." });
+      }
+    } // End of emblem matching IF statement
+  }; // End of Scoring eventhandler
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     let shuffledEmblems = shuffleArray(friends);
     return (
       <Wrapper>
-      <Title>Starfleet Insignia</Title>
-      <h2 className="score">Current Score: {this.state.score}</h2>
+        <Title>The History of Starfleet Insignia</Title>
+        <div className="scoreDiv">
+          <h3 className="score">{this.state.status}</h3>
+          <h2 className="score">Current Score: {this.state.score}</h2>
+          <h2 className="score">High Score: {this.state.highScore}</h2>
+          <h2>Winning Score: 14</h2>
+        </div>
         {shuffledEmblems.map(friend => (
           <FriendCard
             scoring={this.scoring}

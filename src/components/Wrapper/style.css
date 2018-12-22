@@ -1,11 +1,25 @@
 .wrapper {
-  padding-top: 50px;
-  background: #ECEFF1;
+  max-width: 1200px;
+  padding-top: 10px;
+  background-color: black;
   height: 100%;
   display: flex;
   flex-flow: row wrap;
-  padding: 20px;
+  padding: 10px;
   justify-content: space-around;
   align-content: flex-start;
   overflow: auto;
+  font-family: 'Anton', arial, sans-serif;
+  font-size: 1.2rem;
+	font-weight: normal;
+}
+
+h3 {
+  color: #2A77AE;
+}
+
+.scoreDiv {
+  width: 100%;
+  text-align: center;
+  color: lightskyblue;
 }
